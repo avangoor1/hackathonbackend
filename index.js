@@ -16,7 +16,11 @@ app.post("/upload-data",(request,response) => {
     const arduinoData = request.body;
     console.log("Here is my data: "+ arduinoData);
     response.send(arduinoData);
+    document.getElementById('smname').value = arduinoData;
     });
+
+
+
 
 app.get("/data", (req, res)=> {
     res.send(arduinoData);
@@ -33,3 +37,4 @@ app.get("/players", (req, res) => {
 app.listen(port, () => {
     console.log('Example app is listening on port http://localhost:${port}');
 });
+
