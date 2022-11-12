@@ -27,7 +27,7 @@ app.get("/data", (req, res)=> {
 })
 
 app.get("/", (req, res) => {
-    res.send("index.html");
+    res.send('index.html');
 });
 
 app.get("/players", (req, res) => {
