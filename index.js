@@ -14,9 +14,13 @@ app.post("/upload-data",(request,response) => {
     //code to perform particular action.
     //To access POST variable use req.body()methods.
     const arduinoData = request.body;
-    console.log("Here is my data: "+ abc);
-    response.send(abc);
+    console.log("Here is my data: "+ arduinoData);
+    response.send(arduinoData);
     });
+
+app.get("/data", (req, res)=> {
+    res.send(arduinoData);
+})
 
 app.get("/", (req, res) => {
     res.send("Hello Ananya's World");

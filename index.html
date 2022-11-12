@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>JSON Test</title>
+    </head>
+    <body style="background-color:#F6F6E8;">
+        <marquee behavior="alternate" scrollamount="25"><img width="100" src="rice.jpg.webp" onclick="openImg()" id="cooker"><img width="100" src="rice.jpg.webp"></marquee>
+        
+        <u><h1 style="text-align:center">Rice Maturity Test</h1></u>
+        <h3 style="text-align:center">"Go off your rice!"</h3>
+        <div style="text-align:center" id="myData"></div>
+        <script>
+            fetch('data.json')
+                .then(function (response) {
+                    return response.json();
+            })
+                .then(function (data) {
+                    appendData(data);
+            })
+                .catch(function (err) {
+                    console.log('error: ' + err);
+            });
+        function appendData(data) {
+            var mainContainer = document.getElementById("myData");
+            for (var i =0; i < data.length; i++) {
+                var div = document.createElement("div");
+                div.innerHTML = 'Rice Status: ' + data[i].time + ' ' + data[i].status;
+                mainContainer.appendChild(div);
+            }
+        }
+        
+        function openImg(){
+            var image = document.getElementById('cooker');
+            var source = image.src;
+            window.open(source);
+        }
+        
+        </script>
+        <marquee behavior="scroll" scrollamount="25"><img width="100" src="rice.jpg.webp"><img width="100" src="rice.jpg.webp"></marquee>
+    </body>
+</html>
+<!-- need to get audio working when clicked --!>
