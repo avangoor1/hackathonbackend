@@ -1,12 +1,21 @@
 const express = require("express");
 const app = express();
+
+const bodyParser = require('body-parser');
 const importData = require("./data.json");
+
+
+// Configuring body parser middleware
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 let port = process.env.PORT || 3000;
 app.post("/upload-data",(request,response) => {
     //code to perform particular action.
     //To access POST variable use req.body()methods.
-    console.log(request.body);
-    response.send(request.body);
+    const arduinoData = request.body;
+    console.log("Here is my data: "+ abc);
+    response.send(abc);
     });
 
 app.get("/", (req, res) => {
